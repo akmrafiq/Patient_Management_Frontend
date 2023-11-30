@@ -1,0 +1,47 @@
+<div class="px-4">
+  <div class="form-inline">
+      <div class="d-flex align-items-center">
+        <form>
+          <div class="input-group site-search ms-2">
+            <input type="search" class="form-control" placeholder="Search" [(ngModel)]="page.searchText"
+              name="searchText" />
+            <div class="input-group-btn">
+              <button class="btn btn-outline-primary" type="button" (click)="onSearchButtonClicked()">
+                Search
+              </button>
+            </div>
+          </div>
+          <button routerLink="/add" class="btn btn-outline-primary ms-2 my-2">
+            Add
+        </button>
+        </form>
+      </div>
+  </div>
+
+  <div class="table-responsive">
+      <table class="table table-striped w-100">
+          <thead class="thead-dark">
+              <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Phone</th>
+                  <th scope="col">Age</th>
+                  <th scope="col">Actions</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let patient of patients; index as i">
+                  <td>{{ patient.name }}</td>
+                  <td>{{ patient.email }}</td>
+                  <td>{{ patient.phone }}</td>
+                  <td>{{ patient.age }}</td>
+                  <td>
+                      <button (click)="onUpdate(patient.id)" class="btn btn-outline-primary btn-sm me-2">
+                          Edit
+                      </button>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
